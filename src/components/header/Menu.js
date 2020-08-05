@@ -39,6 +39,7 @@ const BTNGroup = styled.div`
     border: 2px solid white;
     &:hover {
       color: #817d99;
+      border: 2px solid #817d99;
     }
   }
 `;
@@ -100,13 +101,13 @@ export default function Menu({ setMenuOpen }) {
       <Positioner>
         <ul>
           <li>HOME</li>
-          <li>LANDING</li>
-          <li>GENERIC</li>
-          <li>ELEMENTS</li>
+          <li>Portfolio</li>
+          <li>GitHub</li>
+          <li>GitBooks</li>
         </ul>
         <BTNGroup>
-          <button>GET STARTED</button>
-          <button>LOG IN</button>
+          <button>Contact</button>
+          <button>Close</button>
         </BTNGroup>
       </Positioner>
     </MenuContainer>

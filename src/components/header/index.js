@@ -78,8 +78,8 @@ export default function Header() {
   return (
     <HeaderContainer>
       <LeftHeader>
-        <strong>FORTY</strong>
-        <span>BY PIXELARITY</span>
+        <strong>RESUME</strong>
+        <span>BY WONGEUN</span>
       </LeftHeader>
       <RightHeader onClick={() => setMenuOpen(!menuOpen)}>
         <span>MENU</span>
