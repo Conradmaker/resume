@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { MdSettingsCell, MdMail, MdRoom } from "react-icons/md";
+
 const RightBox = styled.ul`
   flex: 0.7;
   display: flex;
@@ -123,31 +124,50 @@ const LeftBox = styled.form`
   }
 `;
 const ContactContainer = styled.section`
-  background: #1b2640;
+  background: #202d42;
   display: flex;
+  background-size: cover;
+  background-attachment: fixed;
   border-bottom: 1px solid #35415e;
 `;
-export default function Contact() {
+export default function Contact({ onCreate }) {
+  const initialInputs = { name: "", email: "", message: "" };
+  const [inputs, setInputs] = useState(initialInputs);
+  const { name, email, message } = inputs;
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({ ...inputs, [name]: value });
+  };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    onCreate(name, email, message);
+    setInputs(initialInputs);
+  };
   return (
     <ContactContainer>
-      <LeftBox>
+      <LeftBox onSubmit={onSubmit}>
         <TopGroup>
           <div>
             <label htmlFor="name">NAME</label>
-            <input type="text" name="name" />
+            <input type="text" name="name" value={name} onChange={onChange} />
           </div>
           <div>
             <label htmlFor="email">EMAIL</label>
-            <input type="text" name="email" />
+            <input type="text" name="email" value={email} onChange={onChange} />
           </div>
         </TopGroup>
         <MessageGroup>
           <label htmlFor="message">MESSAGE</label>
-          <textarea name="message" rows="10"></textarea>
+          <textarea
+            name="message"
+            rows="10"
+            value={message}
+            onChange={onChange}
+          ></textarea>
         </MessageGroup>
         <BTNGroup>
-          <button type="submit">SEND MESSAGE</button>
-          <button>CLEAR</button>
+          <button type="submit">글 남기기</button>
+          <button onClick={() => setInputs(initialInputs)}>초기화</button>
         </BTNGroup>
       </LeftBox>
       <RightBox>

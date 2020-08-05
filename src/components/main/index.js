@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Contact from "./contact";
 
-const Darker = styled.div`
+export const Darker = styled.div`
   background-color: rgba(30, 40, 80, 0.7);
   display: flex;
   justify-content: center;
@@ -12,7 +12,6 @@ const Darker = styled.div`
   width: 100%;
   height: 100%;
 `;
-
 const IntroBottom = styled.div`
   height: 40px;
   display: flex;
@@ -154,7 +153,6 @@ const Tiles = styled.section`
     }
   }
 `;
-
 const Intro = styled.section`
   width: 100%;
   height: 550px;
@@ -164,12 +162,12 @@ const Intro = styled.section`
   background-attachment: fixed;
   background-image: url("https://pixelarity.com/items/demos/forty/cyan/images/banner.jpg");
 `;
-
 const MainContainer = styled.div`
   width: 100%;
   height: 2000px;
 `;
-export default function Main() {
+
+export default function Main({ onCreate }) {
   return (
     <MainContainer>
       <Intro>
@@ -237,7 +235,7 @@ export default function Main() {
           </Darker>
         </TilesItem>
       </Tiles>
-      <Contact />
+      <Contact onCreate={onCreate} />
     </MainContainer>
   );
 }

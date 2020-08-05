@@ -73,7 +73,11 @@ const HeaderContainer = styled.header`
   top: 0;
 `;
 
-export default function Header() {
+export default function Header({ history }) {
+  const goHome = () => {
+    history.push("/");
+    console.log("홈");
+  };
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <HeaderContainer>
@@ -87,7 +91,7 @@ export default function Header() {
           <RiMenuLine />
         </i>
       </RightHeader>
-      {menuOpen && <Menu setMenuOpen={setMenuOpen} />}
+      {menuOpen && <Menu setMenuOpen={setMenuOpen} goHome={goHome} />}
     </HeaderContainer>
   );
 }

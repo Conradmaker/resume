@@ -12,6 +12,9 @@ to{
 `;
 
 const BTNGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   button {
     display: block;
     width: 100%;
@@ -23,14 +26,22 @@ const BTNGroup = styled.div`
     letter-spacing: 3px;
     text-align: center;
     cursor: pointer;
-    transition: 0.125s all ease-in;
+    transition: 0.2s all ease-in;
   }
 
   button:nth-child(1) {
-    background: #fff;
     color: rgb(18, 7, 82);
+    font-size: 16px;
+    letter-spacing: 3px;
+    background: #fff;
+    &::before {
+      content: "Contact";
+    }
     &:hover {
-      background: #817d99;
+      width: 140%;
+      &::before {
+        content: "010-8731-0337";
+      }
     }
   }
   button:nth-child(2) {
@@ -62,17 +73,25 @@ const MenuContainer = styled.div`
     width: 100%;
     li {
       width: 100%;
+      text-align: center;
       font-weight: bold;
       letter-spacing: 3px;
-      text-align: center;
-
-      padding: 15px 0px;
       border-bottom: 1px solid #817d99;
+      a,
+      span {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        letter-spacing: 3px;
+        text-align: center;
+        display: block;
+        padding: 15px 0px;
 
-      cursor: pointer;
-      transition: 0.125s all ease-in;
-      &:hover {
-        color: #817d99;
+        cursor: pointer;
+        transition: 0.125s all ease-in;
+        &:hover {
+          color: #817d99;
+        }
       }
     }
     li:last-child {
@@ -92,7 +111,7 @@ const MenuContainer = styled.div`
   }
 `;
 
-export default function Menu({ setMenuOpen }) {
+export default function Menu({ setMenuOpen, goHome }) {
   return (
     <MenuContainer>
       <i>
@@ -100,14 +119,22 @@ export default function Menu({ setMenuOpen }) {
       </i>
       <Positioner>
         <ul>
-          <li>HOME</li>
-          <li>Portfolio</li>
-          <li>GitHub</li>
-          <li>GitBooks</li>
+          <li onClick={goHome}>
+            <span>HOME</span>
+          </li>
+          <li>
+            <a href="https://github.com/Conradmaker">Portfolio </a>
+          </li>
+          <li>
+            <a href="https://github.com/Conradmaker">GitHub</a>
+          </li>
+          <li>
+            <a href="https://github.com/Conradmaker">GitBooks</a>
+          </li>
         </ul>
         <BTNGroup>
-          <button>Contact</button>
-          <button>Close</button>
+          <button></button>
+          <button onClick={() => setMenuOpen(false)}>Close</button>
         </BTNGroup>
       </Positioner>
     </MenuContainer>

@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "./components/header";
-import Main from "./components/main";
+
+import MainContainer from "./containers/MainContainer";
+import { Route } from "react-router-dom";
 function App() {
   return (
     <div>
-      <Header />
-      <Main />
+      <Route path="/" component={MainContainer} exact />
     </div>
   );
 }
