@@ -129,7 +129,7 @@ export default function Menu({ setMenuOpen, goHome }) {
             <a href="https://github.com/Conradmaker">GitHub</a>
           </li>
           <li>
-            <a href="https://github.com/Conradmaker">GitBooks</a>
+            <a href="http://conradmaker.github.io/git-book-list">GitBooks</a>
           </li>
         </ul>
         <BTNGroup>
