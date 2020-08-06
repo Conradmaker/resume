@@ -111,7 +111,7 @@ const MenuContainer = styled.div`
   }
 `;
 
-export default function Menu({ setMenuOpen, goHome }) {
+export default function Menu({ setMenuOpen }) {
   return (
     <MenuContainer>
       <i>
@@ -119,8 +119,8 @@ export default function Menu({ setMenuOpen, goHome }) {
       </i>
       <Positioner>
         <ul>
-          <li onClick={goHome}>
-            <span>HOME</span>
+          <li>
+            <a href="http://conradmaker.github.io/resume">Home </a>
           </li>
           <li>
             <a href="https://github.com/Conradmaker">Portfolio </a>
